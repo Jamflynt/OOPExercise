@@ -86,6 +86,8 @@ class DMCast extends DM {
     // 6a (Bonus)
     static create(t, m, c){
         return new DMCast(t, m, c); 
+        // Can also use the "this" keyword
+        // return new this.(t, m, c);
     }
 }
 // 5d
@@ -116,4 +118,4 @@ const moana = DMCast.create(`Moana`, `Moana of Motunui`,
     });
 
 // 6c 
-console.log(moana); // comes out as 'undefined' in console
+console.log(moana);
