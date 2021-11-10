@@ -75,8 +75,9 @@ class DMCast extends DM {
     }
     // 6a (Bonus)
     static create(t, m, c){
-        super(t, m, c);
-        return
+        const moana = new DMCast(t, m, c); 
+        // 6c ???
+        console.log(moana); // when logged here it displays in console correctly
     }
 }
 // 5d
@@ -107,4 +108,4 @@ const moana = DMCast.create(`Moana`, `Moana of Motunui`,
     });
 
 // 6c 
-console.log(moana);
+console.log(moana); // comes out as 'undefined' in console
