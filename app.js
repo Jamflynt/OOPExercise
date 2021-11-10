@@ -5,7 +5,11 @@ const mulan = {
     // 1b
     quote: () => `Dishonor! Dishonor on your whole family`,
     // 1c
-    storyline: () => {
+    // storyline: () => {
+    //     return `The movie ${this.title} is about ${this.main}`  // This does not return the quote
+    // }
+
+    storyline: function() {
         return `The movie ${this.title} is about ${this.main}`
     }
 }
@@ -15,29 +19,34 @@ const tangled = {
     title: `Tangled`,
     main: `Rapunzel`,
     // 2b 
-    quote: () => {
-        return `I can't believe I did this! I can't believe I did this! I have to go home! I am never going back! I'm a horrible daughter! BEST DAY EVER!`
-    }, 
-    // 2c
-    storyline: () => {
-        return `The movie ${this.title} is about ${this.main}` 
-    }
+    // quote: () => {
+    //     return `I can't believe I did this! I can't believe I did this! I have to go home! I am never going back! I'm a horrible daughter! BEST DAY EVER!`
+    // }, 
+    // // 2c
+    // storyline: () => {
+    //     return `The movie ${this.title} is about ${this.main}` 
+    // }
+    // Need to use declaration functions for all these
 }
 
 // 3a 
-function disneyMovie(t, m){
+function DisneyMovie(t, m){
     this.title = t;
     this.main = m;   
 }
 
-// 2b
-disneyMovie.prototype.storyline = () => `The movie ${this.title} is about ${this.main}`;
+// 3b
+// disneyMovie.prototype.storyline = () => `The movie ${this.title} is about ${this.main}`;
+// Have to use a declaration function again here 
+DisneyMovie.prototype.storyline = function() {
+    return `The movie ${this.title} is about ${this.main}`;
+}
 
 // 3c
-const mulan1 = new disneyMovie(`Mulan`, `Fa Mulan`);
+const mulan1 = new DisneyMovie(`Mulan`, `Fa Mulan`);
 
 // 3d 
-const tangled1 = new disneyMovie(`Tangled`, `Rapunzel`);
+const tangled1 = new DisneyMovie(`Tangled`, `Rapunzel`);
 
 // 4a 
 class DM {
@@ -46,9 +55,10 @@ class DM {
         this.main = m;
     }
     // 4b
-    storyline = () => {
-    return `The movie ${this.title} is about ${this.main}`;
-    }
+    // storyline = () => {
+    // return `The movie ${this.title} is about ${this.main}`;
+    // }
+    // Need to use a declaration function 
 
     // 4e
     static loveDisneyMovies(){
@@ -75,9 +85,7 @@ class DMCast extends DM {
     }
     // 6a (Bonus)
     static create(t, m, c){
-        const moana = new DMCast(t, m, c); 
-        // 6c ???
-        console.log(moana); // when logged here it displays in console correctly
+        return new DMCast(t, m, c); 
     }
 }
 // 5d
