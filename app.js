@@ -75,7 +75,8 @@ class DMCast extends DM {
     }
     // 6a (Bonus)
     static create(t, m, c){
-        return this.t, m, c)
+        super(t, m, c);
+        return
     }
 }
 // 5d
